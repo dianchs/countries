@@ -63,13 +63,23 @@ function NavList(title , route){
 
 
 function chooseRegion(route){
-    FetchData(`${Region.region}/${route}` , res =>{
-        const card = res.map(item =>{
-            return Card(item)
-        }).join('')
-
-        center.innerHTML = card
-    })
+    if(route === 'all'){
+        FetchData(`${Region.getAll}/${route}` , res =>{
+            const card = res.map(item =>{
+                return Card(item)
+            }).join('')
+    
+            center.innerHTML = card
+        })
+    }else{
+        FetchData(`${Region.region}/${route}` , res =>{
+            const card = res.map(item =>{
+                return Card(item)
+            }).join('')
+    
+            center.innerHTML = card
+        })
+    }
 }
 
 
