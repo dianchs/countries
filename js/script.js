@@ -64,7 +64,7 @@ function NavList(title , route){
 
 function chooseRegion(route){
     if(route === 'all'){
-        FetchData(`${Region.getAll}/${route}` , res =>{
+        FetchData(Region.getAll , res =>{
             const card = res.map(item =>{
                 return Card(item)
             }).join('')
